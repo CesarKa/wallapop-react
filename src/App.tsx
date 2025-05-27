@@ -1,5 +1,7 @@
+import AdvertisementPage from "./pages/advertisements/advertisements-page.tsx";
+
 function App() {
-  return <div>Hola React</div>;
+  return <AdvertisementPage />;
 }
 
 export default App;
