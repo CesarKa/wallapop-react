@@ -42,11 +42,11 @@ function AdvertisementPage() {
         ))}
       </ul>
       <Button
-              text="Click me"
+              text="New advert"
               classes="bg-sky-600 border-4 border-indigo-500/100 rounded bg-primary px-4 py-2 text-white hover:bg-primary/90 focus:ring-2 focus:ring-primary/50 focus:outline-none"
               type="submit"
               disabled={true}
-            />
+      />
     </div>
   );
 }
