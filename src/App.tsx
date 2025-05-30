@@ -12,8 +12,6 @@ function App() {
      <Route path="/" element={<AdvertisementPage/>}/>
   </Routes>
   
-
- 
   )
 }
 
