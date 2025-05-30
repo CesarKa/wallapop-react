@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router";
 import { Button } from "../../components/button"
 import { logIn } from "./service"
 import { useState, type ChangeEvent, type FormEvent } from "react"
@@ -11,6 +12,8 @@ export const LogInPage = () => {
         password: "",
     });
 
+    const navigate = useNavigate();
+    
     function handleChange(event: ChangeEvent<HTMLInputElement>) {
     setCredentials((prevCredentials) => ({
         ...prevCredentials,
@@ -20,8 +23,17 @@ export const LogInPage = () => {
 
 
     const submit = (event:FormEvent<HTMLFormElement>) =>{
-        event.preventDefault();
-        logIn(credentials)
+        
+        
+        
+        try {
+            event.preventDefault();
+            logIn(credentials)
+            navigate("/")
+        }
+        catch {
+
+        }
     }
 
     return (
