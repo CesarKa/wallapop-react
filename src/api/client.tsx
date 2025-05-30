@@ -16,3 +16,7 @@ client.interceptors.request.use((config) => {
   }
   return config;
 });
+
+export const removeAuthorizationHeader = () => {
+  delete client.defaults.headers["Authorization"];
+};

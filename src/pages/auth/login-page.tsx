@@ -25,7 +25,10 @@ export const LogInPage = () => {
     }
 
     return (
+    
     <form onSubmit={submit}>
+        <h1 className="text-4xl font-bold text-pink-700" >Log in</h1>
+        <br></br>
         <label htmlFor="Email">Email</label>
         <input onChange={handleChange} name="email" className="bg-white text-black" type="text" />
         <label htmlFor="Password">Password</label>

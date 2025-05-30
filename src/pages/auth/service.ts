@@ -1,6 +1,6 @@
-import { client } from "../../api/client";
+import { client, removeAuthorizationHeader } from "../../api/client";
 import type { typesLogIn } from "./types";
-
+import { storage } from "../../../utils/storage" 
 
 export const logIn = async (credencials: typesLogIn) => {
     const response = await client.post("/api/auth/login", credencials);
@@ -9,3 +9,8 @@ export const logIn = async (credencials: typesLogIn) => {
 
     console.log(response);
 };
+
+export const logout = () => {
+    storage.remove("authToken");
+    removeAuthorizationHeader();
+}
