@@ -18,7 +18,7 @@ function AdvertisementPage() {
     }, []); 
 
   return (
-    <Layout title="Listado de anuncios">
+    <Layout title="">
   <div className="container mx-auto px-4 py-8">
     <h1 className="text-5xl font-extrabold text-pink-700 mb-8 text-center">Advertisements </h1>
     

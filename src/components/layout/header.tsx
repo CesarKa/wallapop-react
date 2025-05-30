@@ -16,16 +16,28 @@ function Header() {
         navigate("/login")
     }
 
-    return (<header>
-        <div>Logo</div>
-        <nav>
-            {isLogged ? (
-                <Button onClick={handleLogoutClick} text="Logout" type="button" classes="bg-sky-600 border-4 border-indigo-500/100 rounded bg-primary px-4 py-2 text-white hover:bg-primary/90 focus:ring-2 focus:ring-primary/50 focus:outline-none"/>
-            ) : (
-                <Button onClick={handleLoginClick} text="Logout" type="button" classes="bg-sky-600 border-4 border-indigo-500/100 rounded bg-primary px-4 py-2 text-white hover:bg-primary/90 focus:ring-2 focus:ring-primary/50 focus:outline-none"/> 
-            )}
-        </nav>
-    </header>
+    return (<header className="bg-white shadow-md py-4 px-6 flex items-center justify-between">
+  <div className="text-2xl font-bold text-sky-600">NodePop</div>
+  
+  <nav>
+    {isLogged ? (
+      <Button
+        onClick={handleLogoutClick}
+        text="Logout"
+        type="button"
+        classes="bg-sky-600 border-4 border-indigo-500/100 rounded px-4 py-2 text-white hover:bg-sky-700 focus:ring-2 focus:ring-sky-400 focus:outline-none"
+      />
+    ) : (
+      <Button
+        onClick={handleLoginClick}
+        text="Login"
+        type="button"
+        classes="bg-sky-600 border-4 border-indigo-500/100 rounded px-4 py-2 text-white hover:bg-sky-700 focus:ring-2 focus:ring-sky-400 focus:outline-none"
+      />
+    )}
+  </nav>
+</header>
+
     );
 }
 
