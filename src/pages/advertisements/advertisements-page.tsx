@@ -1,45 +1,48 @@
+import { useEffect, useState } from "react";
 import { Button } from "../../components/button";
 import { Layout } from "../../components/layout/layout"
+import { getLatestAdvertisements } from "./service";
+import { type Advert } from "./service";
 
-const advertisements = [
-  {
-    id: "1",
-    name: "iPhone 14 Pro",
-    price: 1200,
-    type: "venta", 
-    tags: ["tecnología", "móvil"],
-  },
-  {
-    id: "2",
-    name: "Patinete Xiaomi",
-    price: 300,
-    type: "venta",
-    tags: ["movilidad", "tecnología"],
-  },
-  {
-    id: "3",
-    name: "Busco MacBook Pro usado",
-    price: 800,
-    type: "compra",
-    tags: ["tecnología", "portátil"],
-  },
-  {
-    id: "4",
-    name: "Cámara Canon EOS 2000D",
-    price: 450,
-    type: "venta",
-    tags: ["fotografía", "tecnología"],
-  },
-];
 
 function AdvertisementPage() {
+  const [advertisements, setAdvertisemets] = useState<Advert[]>([])
+    useEffect(()=> {
+      getLatestAdvertisements()
+        .then((data) => {
+          setAdvertisemets(data);
+        })
+        .catch((error: unknown) => {
+          console.log(error)
+        });
+    }, []); 
+
   return (
     <Layout title="Listado de anuncios">
       <div>
         <h1 className="text-4xl font-bold text-pink-700" >Advertisement Page!!!</h1>
         <ul className="list-inside list-disc">
           {advertisements.map((advertisement) => (
-            <li>{advertisement.name}</li>
+            <div>
+            <li key={advertisement.id}>
+              <div>
+              <h3>{advertisement.name}</h3>
+              </div>
+              <div>
+              {advertisement.sale}
+              </div>
+              <div>
+              {advertisement.price}
+              </div>
+              <div>
+              {advertisement.tags}
+              </div>
+              <div>
+              {advertisement.photo}
+              </div>
+            </li>
+
+            </div>
           ))}
         </ul>
         <Button
