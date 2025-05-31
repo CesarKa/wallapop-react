@@ -1,7 +1,30 @@
+import { useEffect, useState } from "react";
+import { Button } from "../../components/button"
+import { useNavigate } from "react-router";
 
 
 
 export const NewAdvertPage = () => {
+    const [FormData, setFormData] = useState<AdvertPayLoad>({
+        name: "",
+        price: 0,
+        tags: [],
+        sale: false,
+        photo: ""
+    });
+    const [photoFile, setPhotofile] = useState<File | null>(null);
+    const [tags, setTags] = useState<string[]>([]);
+    const [sekectedTags, setSelectedTags] = useState<string[]>([]);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const getTags = async () => {
+            const tags = await getAdverTags();
+            setTags();
+        };
+        getTags();
+    }, []);
+    
     return (
         <div>
             <h1>
@@ -86,12 +109,51 @@ export const NewAdvertPage = () => {
                         onChange={handleChange}
                         />
                         <span>
+                            compra
+                        </span>
+                        <label 
+                    htmlFor="venta"
+                    >
+                        <input 
+                        type="radio"
+                        name="sale"
+                        id="venta"
+                        value="venta"
+                        required
+                        checked={FormData.sale === false}
+                        onChange={handleChange}
+                        />
+                        <span>
                             venta
                         </span>
                     </label>
                 </div>
             </div>
+
+            {/* <div>
+                <label>
+                    Foto (opcional)
+                </label>
+                <div>
+                    <label 
+                    htmlFor="photo"
+                    >
+                    <input 
+                    type="file" 
+                    name="photo" 
+                    id="photo"
+                    onChange={handleChange} 
+                    />
+                    </label>
+                </div>
+            </div>
+
+            <div>
+                <Button type="submit">
+                    Publicar Anuncio
+                </Button>
+            </div> */}
             </form>
         </div>
-    )
+    );
 }
