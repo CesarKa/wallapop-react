@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+{/*mport { useEffect, useState } from "react";
 import { Button } from "../../components/button"
 import { useNavigate } from "react-router";
 
@@ -36,7 +36,7 @@ export const NewAdvertPage = () => {
             {/* <Notification
                 successMessage={successMessage}
                 errorMessage={errorMessage}
-            /> */}
+            /> 
             <div>
                 <label 
                 htmlFor="name"
@@ -152,8 +152,8 @@ export const NewAdvertPage = () => {
                 <Button type="submit">
                     Publicar Anuncio
                 </Button>
-            </div> */}
+            </div> 
             </form>
         </div>
     );
-}
+}*/}
