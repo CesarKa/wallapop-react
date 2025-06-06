@@ -7,8 +7,6 @@ import AuthProvider from "./pages/auth/auth-provider.tsx";
 import { setAuthorizationHeader } from "./api/client.tsx";
 import { storage } from "../utils/storage.ts";
 
-
-
 const accessToken = storage.get("authToken");
 if (accessToken) {
   setAuthorizationHeader(accessToken);
@@ -16,7 +14,7 @@ if (accessToken) {
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <AuthProvider defaultIsLogged={!!accessToken} >
+    <AuthProvider defaultIsLogged={!!accessToken}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
